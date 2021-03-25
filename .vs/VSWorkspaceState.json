@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\static"
+    "\\static",
+    "\\templates"
   ],
-  "SelectedNode": "\\urlform.py",
+  "SelectedNode": "\\scrape.py",
   "PreviewInSolutionExplorer": false
 }
