@@ -1,26 +1,22 @@
 from selenium import webdriver
-import urllib.request
-
-from alternat.generation import Generator
-generator = Generator()
+import requests
+import time
+import detection
 
 DRIVERPATH = "D:\_DOCUMENTS\Code\chromedriver_win32\chromedriver.exe"
-
+ls = []
 def img_scrape(url):
-    driver = webdriver.Chrome(DRIVERPATH)
-    driver.get(url) #insert website
-    
+    driver = webdriver.Chrome(DRIVERPATH)   
+    driver.get(url)
+    time.sleep(5)
     elements = driver.find_elements_by_tag_name('img')
     for e in elements:
-        img = url + e.get_attribute('src')
+        img = e.get_attribute('src')
         print(e.get_attribute ('alt'))
-        
-        filename = img.split('/')[-1]
-        urllib.request.urlretrieve(img, filename)
-        
-def generate(img):
-    generator.generate_alt_text_from_file(img, "results")
-    
-
-
-
+        filename = r"images/" + img.split('/')[-1]
+        ls.append(filename)
+        r = requests.get(img)
+        with open(filename, "wb") as f:
+            f.write(r.content)
+    driver.quit()
+    detection.detect_text(ls)

@@ -11,28 +11,67 @@
 </head>
 
 <body>
-    <div class="container p-3 my-3 bg-dark text-white">
-        <div class="jumbotron text-center">
-            <h1>Give URL</h1>
-            <p>Design and Development of an automated Usability Evaluation Method using relevant Machine Learning Techniques</p>
+    <div class="container-fluid my-3 mt-0">
+        <div class="row bg-dark text-white p-3">
+            <div class="col-md-2">
+                <img class="rounded img-thumbnail" src="images/icon.png" alt=""/>
+            </div>
+            
+            <div class="col-md-6 text-center">
+                <h1 class="display-1">
+                    AutoUE
+                </h1>
+                <h1 class="text-muted">
+                    Design and Development of an automated Usability Evaluation Method using relevant Machine Learning Techniques
+                </h1>
+            </div>
+
+                <div class="col-md-2">
+                    <h3>Why AutoUE?</h3>
+                    <p>lorem ipsum</p>
+                </div>
+                <div class="col-md-2">
+                    <h3>How to use</h3>
+                    <p>lorem ipsum</p>
+                </div> 
         </div>
+
+        <div class="row p-3"></div>
+
     </div>
-    
-    <div class="container p-3 w-25 bg-light">
-        <h2>Enter email address and URL</h2>
-        <form action="/signup" method="post">
-            <div class="form-group">
-                <label for="email"> Email address:</label>
-                <input type="email" class="form-control" placeholder="Enter email" id="email">
-            </div>
 
-            <div class="form-group">
-                <label for="URL">URL: </label>
-                <input type="text" class="form-control" placeholder="Enter URL" name="URL">
+    <div class="container">
+        <div class="row">        
+            <div class="col-md-8">
+                <h1>Behind the scenes</h1>
+                <p>hewwo</p>
             </div>
+            
+            <div class="col-md-4">
+                <h2>Enter email address and URL</h2>
+                <form action="/signup" method="post">
+                    <div class="form-group mt-3">
+                        <label for="email"> Email address:</label>
+                        <input type="email" class="form-control" placeholder="Enter email" id="email">
+                        <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+        
+                    <div class="form-group mt-3">
+                        <label for="URL">URL: </label>
+                        <input type="text" class="form-control" placeholder="Enter URL" name="URL">
+                    </div>
+        
+                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                </form>
+            </div>
+        </div>
+        
+    </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+    <div class="container-fluid bg-dark fixed-bottom text-white text-center">
+        <p class="m-1">
+            bottom text
+        </p>
     </div>
     
 </body>
