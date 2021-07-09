@@ -5,9 +5,11 @@ Created on Thu May  6 15:07:42 2021
 @author: natasja
 """
 from csv import DictReader, DictWriter
+fieldnames = ['email', 'url', 'unique', 'done']
 
-def check_info(email,url):
-    fieldnames = ['email', 'url', 'unique']
+#used in main (flask form)
+def store_info(email,url):
+    
     with open('users.csv', newline='') as f:
         reader = DictReader(f, fieldnames=fieldnames)
         unique = 0
@@ -18,12 +20,31 @@ def check_info(email,url):
     user = {
         "email": email,
         "url": url,
-        "unique": unique
+        "unique": unique,
+        "done": False
         }
     
     with open('users.csv', 'a', newline='') as f:
         writer = DictWriter(f, fieldnames=fieldnames)
         
         writer.writerow(user)
-        
         f.close()
+        
+def get_data():
+    to_scrape = []
+    data = []
+    with open('users.csv', newline='') as f:
+        reader = DictReader(f, fieldnames=fieldnames)
+        for row in reader:
+            data.append(row)
+            if row['done'] == "False":
+                to_scrape.append(row)
+                
+    with open('users.csv', 'w', newline='') as f:
+        writer = DictWriter(f, fieldnames=fieldnames)
+        for d in data:
+            d['done'] = True
+            writer.writerow(d)
+        f.close()
+    return to_scrape
+    

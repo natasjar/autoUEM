@@ -1,4 +1,3 @@
-# import the necessary packages
 from imutils.object_detection import non_max_suppression
 import numpy as np
 import time
@@ -99,10 +98,8 @@ def detect_text(i):
     boxes = non_max_suppression(np.array(rects), probs=confidences)
     #print(boxes)
     if boxes == []:
-        print(i + ' has no text\n')
         return False
     else:
-        print(i + ' contains text\n')
         # loop over the bounding boxes
         for (startX, startY, endX, endY) in boxes:
              # scale the bounding box coordinates based on the respective
@@ -116,6 +113,7 @@ def detect_text(i):
              
              cv2.rectangle(orig, (startX, startY), (endX, endY), (0, 255, 0), 2)
         cv2.imshow("Text Detected", orig)
-        cv2.waitKey(0)
+        cv2.waitKey(1000)
+        cv2.destroyAllWindows()
         
         return True
